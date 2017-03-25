@@ -1,0 +1,10 @@
+<div id="search-component">
+    <h4>Pigeon Search</h4>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    <div>
+        <div *ngFor="let pigeon of pigeons | async"
+             (click)="gotoDetail(pigeon)" class="search-result" >
+            {{pigeon.name}}
+        </div>
+    </div>
+</div>

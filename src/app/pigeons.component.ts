@@ -38,4 +38,23 @@ export class PigeonsComponent implements OnInit { // component
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedPigeon.id]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.pigeonService.create(name)
+        .then(pigeon => {
+          this.pigeons.push(pigeon);
+          this.selectedPigeon = null;
+        })
+  }
+
+  delete(pigeon: Pigeon): void {
+    this.pigeonService
+        .delete(pigeon.id)
+        .then(() => {
+          this.pigeons = this.pigeons.filter(p => p !== pigeon);
+          if (this.selectedPigeon === pigeon) {this.selectedPigeon = null;}
+        })
+  }
 }

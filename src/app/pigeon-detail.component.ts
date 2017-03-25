@@ -31,6 +31,11 @@ export class PigeonDetailComponent implements OnInit { // Always export the comp
             .subscribe(pigeon => this.pigeon = pigeon);
     }
 
+    save(): void {
+        this.pigeonService.update(this.pigeon)
+            .then(() => this.goBack());
+    }
+
     goBack(): void {
         this.location.back();
     }

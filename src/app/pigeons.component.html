@@ -1,9 +1,17 @@
 <h2>My magic pigeons</h2>
+<div>
+  <label>Pigeon name:</label><input #pigeonName />
+  <button (click)="add(pigeonName.value); pigeonName.value=''">
+    Add
+  </button>
+</div>
 <ul class="pigeons">
   <li *ngFor="let pigeon of pigeons"
       (click)="onSelect(pigeon)"
       [class.selected]="pigeon === selectedPigeon">
     <span class="badge">{{pigeon.id}}</span>{{pigeon.name}}
+    <button class="delete"
+            (click)="delete(pigeon); $event.stopPropagation()">x</button>
   </li>
 </ul>
 
