@@ -8,7 +8,7 @@ import { PigeonService } from './pigeon.service';
 @Component({
   selector: 'pigeons',
   templateUrl: 'pigeons.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./pigeons.component.css']
 })
 
 export class PigeonsComponent implements OnInit { // component
