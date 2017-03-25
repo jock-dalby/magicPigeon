@@ -1,0 +1,15 @@
+<h2>My magic pigeons</h2>
+<ul class="pigeons">
+  <li *ngFor="let pigeon of pigeons"
+      (click)="onSelect(pigeon)"
+      [class.selected]="pigeon === selectedPigeon">
+    <span class="badge">{{pigeon.id}}</span>{{pigeon.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedPigeon">
+  <h2>
+    {{selectedPigeon.name | uppercase}} is my favourite pigeon.
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
